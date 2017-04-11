@@ -22,20 +22,22 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000f;
+        public static final int action_settings=0x7f080011;
         public static final int btnLogin=0x7f080003;
-        public static final int btnRegister=0x7f08000d;
+        public static final int btnRegister=0x7f08000f;
         public static final int checkBoxMenor=0x7f080007;
         public static final int footer=0x7f080002;
         public static final int header=0x7f080000;
         public static final int link_register=0x7f080004;
-        public static final int link_to_login=0x7f08000e;
+        public static final int link_to_login=0x7f080010;
         public static final int reg_cedula=0x7f080005;
-        public static final int reg_centroMedico=0x7f08000b;
+        public static final int reg_centroMedico=0x7f08000d;
         public static final int reg_edad=0x7f080009;
         public static final int reg_edadMeses=0x7f08000a;
+        public static final int reg_estatura=0x7f08000c;
         public static final int reg_nombreCompleto=0x7f080006;
-        public static final int reg_password=0x7f08000c;
+        public static final int reg_password=0x7f08000e;
+        public static final int reg_peso=0x7f08000b;
         public static final int textEdad=0x7f080008;
         public static final int textView1=0x7f080001;
     }

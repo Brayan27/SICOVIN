@@ -53,6 +53,8 @@
             android:orientation="vertical"
             android:padding="10dip" >
 
+            <!-- cedula -->
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -70,6 +72,8 @@
                 <requestFocus />
             </EditText>
 
+            <!-- nombre compleyo -->
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -83,6 +87,8 @@
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:singleLine="true" />
+
+            <!-- Edad -->
 
             <CheckBox
                 android:id="@+id/checkBoxMenor"
@@ -113,11 +119,49 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
-                android:digits="0123456789."
+                android:digits="0123456789"
                 android:inputType="numberDecimal"
                 android:maxLength="2"
                 android:singleLine="true"
                 android:visibility="gone" />
+
+            <!-- peso -->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Peso en kilogramos"
+                android:textColor="#372c24" />
+
+            <EditText
+                android:id="@+id/reg_peso"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:digits="0123456789."
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <!-- estatura -->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Estatura en metros"
+                android:textColor="#372c24" />
+
+            <EditText
+                android:id="@+id/reg_estatura"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:digits="0123456789."
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <!-- centro medico -->
 
             <TextView
                 android:layout_width="fill_parent"
@@ -133,6 +177,8 @@
                 android:layout_marginTop="5dip"
                 android:singleLine="true" />
 
+            <!-- contraseña -->
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -147,12 +193,16 @@
                 android:password="true"
                 android:singleLine="true" />
 
+            <!-- boton registrar -->
+
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
                 android:text="Register New Account" />
+
+            <!-- regresar al login -->
 
             <TextView
                 android:id="@+id/link_to_login"
@@ -161,7 +211,7 @@
                 android:layout_marginBottom="40dip"
                 android:layout_marginTop="40dip"
                 android:gravity="center"
-                android:text="Already has account! Login here"
+                android:text="Ya tiene una cuenta! Regresar al Inicio"
                 android:textColor="#025f7c"
                 android:textSize="20dip" />
         </LinearLayout>
