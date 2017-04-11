@@ -42,46 +42,96 @@
 
 
         <!-- Registration Form -->
+        <!-- Registration Form Ends -->
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/header"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/header"
             android:orientation="vertical"
             android:padding="10dip" >
 
-            <!-- Full Name Label -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Cédula"
+                android:textColor="#372c24" />
+
+            <EditText
+                android:id="@+id/reg_cedula"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:singleLine="true" >
+
+                <requestFocus />
+            </EditText>
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Full Name"
+                android:text="Nombre completo"
                 android:textColor="#372c24" />
 
             <EditText
-                android:id="@+id/reg_fullname"
+                android:id="@+id/reg_nombreCompleto"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:singleLine="true" />
-            <!-- Email Label -->
+
+            <CheckBox
+                android:id="@+id/checkBoxMenor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menor de un año" />
+
+            <TextView
+                android:id="@+id/textEdad"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#372c24" />
+
+            <EditText
+                android:id="@+id/reg_edad"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:digits="0123456789."
+                android:inputType="numberDecimal"
+                android:maxLength="1"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/reg_edadMeses"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:digits="0123456789."
+                android:inputType="numberDecimal"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="Centro Médico"
                 android:textColor="#372c24" />
 
             <EditText
-                android:id="@+id/reg_email"
+                android:id="@+id/reg_centroMedico"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:singleLine="true" />
-            <!-- Password Label -->
 
             <TextView
                 android:layout_width="fill_parent"
@@ -96,7 +146,6 @@
                 android:layout_marginTop="5dip"
                 android:password="true"
                 android:singleLine="true" />
-            <!-- Register Button -->
 
             <Button
                 android:id="@+id/btnRegister"
@@ -104,7 +153,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
                 android:text="Register New Account" />
-            <!-- Link to Login Screen -->
 
             <TextView
                 android:id="@+id/link_to_login"
@@ -117,8 +165,6 @@
                 android:textColor="#025f7c"
                 android:textSize="20dip" />
         </LinearLayout>
-        <!-- Registration Form Ends -->
-
     </RelativeLayout>
 
 </ScrollView>
