@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true" >
@@ -58,7 +59,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Cédula"
+                android:text="Cédula niño"
                 android:textColor="#372c24" />
 
             <EditText
@@ -67,17 +68,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
+                android:hint="0-0000-0000"
                 android:singleLine="true" >
 
                 <requestFocus />
             </EditText>
 
-            <!-- nombre compleyo -->
+            <!-- nombre completo -->
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre completo"
+                android:text="Nombre del niño"
                 android:textColor="#372c24" />
 
             <EditText
@@ -86,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
+                android:hint="Nombre completo"
                 android:singleLine="true" />
 
             <!-- Edad -->
@@ -100,6 +103,7 @@
                 android:id="@+id/textEdad"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:hint="Edad"
                 android:textColor="#372c24" />
 
             <EditText
@@ -109,6 +113,7 @@
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:digits="0123456789."
+                android:hint="Edad"
                 android:inputType="numberDecimal"
                 android:maxLength="1"
                 android:singleLine="true" />
@@ -130,7 +135,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Peso en kilogramos"
+                android:text="Peso del niño"
                 android:textColor="#372c24" />
 
             <EditText
@@ -140,6 +145,7 @@
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:digits="0123456789."
+                android:hint="Kg"
                 android:inputType="numberDecimal"
                 android:singleLine="true" />
 
@@ -148,7 +154,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Estatura en metros"
+                android:text="Estatura del niño"
                 android:textColor="#372c24" />
 
             <EditText
@@ -158,6 +164,7 @@
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:digits="0123456789."
+                android:hint="Metros"
                 android:inputType="numberDecimal"
                 android:singleLine="true" />
 
@@ -169,20 +176,41 @@
                 android:text="Centro Médico"
                 android:textColor="#372c24" />
 
-            <EditText
-                android:id="@+id/reg_centroMedico"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dip"
-                android:layout_marginTop="5dip"
-                android:singleLine="true" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                     />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                   />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+               
+
+            </LinearLayout>
 
             <!-- contraseña -->
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Password"
+                android:text="Contraseña"
                 android:textColor="#372c24" />
 
             <EditText
