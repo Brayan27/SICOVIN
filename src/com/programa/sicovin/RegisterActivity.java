@@ -1,21 +1,34 @@
 package com.programa.sicovin;
 
+import java.util.ArrayList;
+
+import com.programa.modelo.Globales;
+import com.programa.modelo.Provincia;
+import com.programa.modelo.WebServiceDisCR;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RegisterActivity extends Activity {
+
+	// http://data.okfn.org/data/investigacion/divisiones-territoriales-costa-rica
 
 	private CheckBox menorAnio;
 	private TextView textEdad;
 	private EditText reg_edad;
 	private EditText reg_edadMeses;
+	private Spinner spinnerProvincias;
+	private WebServiceDisCR servicio;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +37,7 @@ public class RegisterActivity extends Activity {
 
 		inicializarComponentes();
 		ajustarEventos();
+		serviceSpinnerProvincias();
 	}
 
 	@Override
@@ -51,6 +65,7 @@ public class RegisterActivity extends Activity {
 		textEdad.setText("Edad en Años");
 		reg_edad = (EditText) findViewById(R.id.reg_edad);
 		reg_edadMeses = (EditText) findViewById(R.id.reg_edadMeses);
+		spinnerProvincias = (Spinner) findViewById(R.id.spinnerProvincia);
 	}
 
 	private void ajustarEventos() {
@@ -68,6 +83,48 @@ public class RegisterActivity extends Activity {
 				}
 			}
 		});
+	}
+
+	private void serviceSpinnerProvincias() {
+		if (Globales.obtenerInstancia().getProvincias().isEmpty()) {
+			Globales.obtenerInstancia().setRegisterActivity(this);
+			servicio = new WebServiceDisCR();
+			servicio.execute(
+					"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm1-provincias.json",
+					"1");
+		}
+	}
+
+	public void cargarSpinnerProvincias() {
+
+		ArrayList<Provincia> provincias = Globales.obtenerInstancia().getProvincias();
+
+		String[] datos = new String[provincias.size()];
+
+		for (int i = 0; i < provincias.size(); i++) {
+			datos[i] = provincias.get(i).getNombreProvincia();
+		}
+
+		cargarSpinner(spinnerProvincias, datos);
+
+	}
+
+	private void cargarSpinner(Spinner spinner, final String[] datos) {
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
+				datos);
+
+		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				Toast.makeText(getApplicationContext(), datos[position], Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+			}
+		});
+
+		spinner.setAdapter(adapter);
 	}
 
 }
