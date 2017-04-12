@@ -92,6 +92,8 @@ public class RegisterActivity extends Activity {
 			servicio.execute(
 					"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm1-provincias.json",
 					"1");
+		}else{
+			cargarSpinnerProvincias();
 		}
 	}
 
