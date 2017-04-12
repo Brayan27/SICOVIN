@@ -181,21 +181,21 @@
                 android:layout_height="wrap_content" >
                 
                 <Spinner
-                    android:id="@+id/spinner1"
+                    android:id="@+id/spinnerProvincia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                    />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spinnerCanton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                      />
 
                 <Spinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/spinnerDistrito"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
