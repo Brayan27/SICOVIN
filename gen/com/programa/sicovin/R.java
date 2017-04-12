@@ -37,9 +37,9 @@ public final class R {
         public static final int reg_nombreCompleto=0x7f080006;
         public static final int reg_password=0x7f080010;
         public static final int reg_peso=0x7f08000b;
-        public static final int spinner1=0x7f08000d;
-        public static final int spinner2=0x7f08000e;
-        public static final int spinner3=0x7f08000f;
+        public static final int spinnerCanton=0x7f08000e;
+        public static final int spinnerDistrito=0x7f08000f;
+        public static final int spinnerProvincia=0x7f08000d;
         public static final int textEdad=0x7f080008;
         public static final int textView1=0x7f080001;
     }
