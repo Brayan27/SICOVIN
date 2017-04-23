@@ -13,9 +13,7 @@ public class Globales {
 	private Globales() {
 		provincias = new ArrayList<>();
 		datos = "";
-
 	}
-
 	public static Globales obtenerInstancia() {
 		return (global == null) ? global = new Globales() : global;
 	}

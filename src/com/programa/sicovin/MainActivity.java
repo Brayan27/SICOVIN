@@ -51,7 +51,8 @@ public class MainActivity extends Activity {
 		buttonLogin.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-
+				Intent i = new Intent(getApplicationContext(), InicioActivity.class);
+				startActivity(i);
 			}
 		});
 		textReg.setOnClickListener(new View.OnClickListener() {
