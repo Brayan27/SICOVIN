@@ -1,18 +1,26 @@
 package com.programa.sicovin;
 
+import com.programa.controller.Controller;
+import com.programa.model.Usuario;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
 	private Button buttonLogin;
 	private TextView textReg;
+	private EditText cedula;
+	private EditText contrasena;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +51,8 @@ public class MainActivity extends Activity {
 	}
 
 	private void inicializarComponentes() {
+		cedula = (EditText) findViewById(R.id.iniCedula);
+		contrasena = (EditText) findViewById(R.id.iniContrasena);
 		buttonLogin = (Button) findViewById(R.id.btnLogin);
 		textReg = (TextView) findViewById(R.id.link_register);
 	}
@@ -51,8 +61,7 @@ public class MainActivity extends Activity {
 		buttonLogin.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent i = new Intent(getApplicationContext(), InicioActivity.class);
-				startActivity(i);
+				iniciarSesion();
 			}
 		});
 		textReg.setOnClickListener(new View.OnClickListener() {
@@ -62,5 +71,25 @@ public class MainActivity extends Activity {
 				startActivity(i);
 			}
 		});
+	}
+
+	private void iniciarSesion() {
+		try {
+			Usuario usuario = new Usuario();
+			usuario.setCedula(cedula.getText().toString());
+			usuario.setContrasena(contrasena.getText().toString());
+			Controller.obtenerInstancia().iniciarSesion(usuario, this);
+
+			if (Controller.obtenerInstancia().getUsuario() != null) {
+				Toast.makeText(this, "Éxito al iniciar sesión", Toast.LENGTH_SHORT).show();
+				Intent i = new Intent(getApplicationContext(), InicioActivity.class);
+				startActivity(i);
+			} else {
+				Toast.makeText(this, "Error en las credenciales", Toast.LENGTH_SHORT).show();
+			}
+		} catch (Exception ex) {
+			Log.e(null, ex.getMessage());
+			Log.e(null, ex.getCause().toString());
+		}
 	}
 }

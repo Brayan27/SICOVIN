@@ -2,17 +2,22 @@ package com.programa.sicovin;
 
 import java.util.ArrayList;
 
-import com.programa.modelo.Globales;
-import com.programa.modelo.Provincia;
-import com.programa.modelo.WebServiceDisCR;
+import com.programa.controller.Controller;
+import com.programa.model.Canton;
+import com.programa.model.Distrito;
+import com.programa.model.Provincia;
+import com.programa.model.Usuario;
+import com.programa.services.WebServiceDisCR;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -23,11 +28,19 @@ public class RegisterActivity extends Activity {
 
 	// http://data.okfn.org/data/investigacion/divisiones-territoriales-costa-rica
 
+	private EditText cedula;
+	private EditText nombre;
+	private EditText peso;
+	private EditText estatura;
 	private CheckBox menorAnio;
 	private TextView textEdad;
 	private EditText reg_edad;
 	private EditText reg_edadMeses;
 	private Spinner spinnerProvincias;
+	private Spinner spinnerCantones;
+	private Spinner spinnerDistritos;
+	private EditText contrasena;
+	private Button botonRegistrar;
 	private WebServiceDisCR servicio;
 
 	@Override
@@ -60,12 +73,20 @@ public class RegisterActivity extends Activity {
 	}
 
 	private void inicializarComponentes() {
+		cedula = (EditText) findViewById(R.id.reg_cedula);
+		nombre = (EditText) findViewById(R.id.reg_nombreCompleto);
+		peso = (EditText) findViewById(R.id.reg_peso);
+		estatura = (EditText) findViewById(R.id.reg_estatura);
 		menorAnio = (CheckBox) findViewById(R.id.checkBoxMenor);
 		textEdad = (TextView) findViewById(R.id.textEdad);
 		textEdad.setText("Edad en Años");
 		reg_edad = (EditText) findViewById(R.id.reg_edad);
 		reg_edadMeses = (EditText) findViewById(R.id.reg_edadMeses);
 		spinnerProvincias = (Spinner) findViewById(R.id.spinnerProvincia);
+		spinnerCantones = (Spinner) findViewById(R.id.spinnerCanton);
+		spinnerDistritos = (Spinner) findViewById(R.id.spinnerDistrito);
+		contrasena = (EditText) findViewById(R.id.reg_password);
+		botonRegistrar = (Button) findViewById(R.id.btnRegister);
 	}
 
 	private void ajustarEventos() {
@@ -83,23 +104,60 @@ public class RegisterActivity extends Activity {
 				}
 			}
 		});
+
+		botonRegistrar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				registrarUsuario();
+			}
+		});
+	}
+
+	private void registrarUsuario() {
+		int edad = 0;
+		int menor = 0;
+		if (menorAnio.isChecked()) {
+			menor = 1;
+			edad = Integer.valueOf(reg_edadMeses.getText().toString());
+		} else {
+			edad = Integer.valueOf(reg_edad.getText().toString());
+		}
+		Usuario usuario = new Usuario();
+		usuario.setCedula(cedula.getText().toString());
+		usuario.setNombre(nombre.getText().toString());
+		usuario.setMenorAnio(menor);
+		usuario.setEdad(edad);
+		usuario.setPeso(Double.valueOf(peso.getText().toString()));
+		usuario.setEstatura(Double.valueOf(estatura.getText().toString()));
+		usuario.setProvincia(spinnerProvincias.getSelectedItem().toString());
+		usuario.setCanton(spinnerCantones.getSelectedItem().toString());
+		usuario.setDistrito(spinnerDistritos.getSelectedItem().toString());
+		usuario.setContrasena(contrasena.getText().toString());
+		Controller.obtenerInstancia().registrarUsuario(usuario, this);
+
+		if (Controller.obtenerInstancia().getUsuario() != null) {
+			Intent i = new Intent(getApplicationContext(), InicioActivity.class);
+			startActivity(i);
+		} else {
+			Toast.makeText(this, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	private void serviceSpinnerProvincias() {
-		if (Globales.obtenerInstancia().getProvincias().isEmpty()) {
-			Globales.obtenerInstancia().setRegisterActivity(this);
+		if (Controller.obtenerInstancia().getProvincias().isEmpty()) {
+			Controller.obtenerInstancia().setRegisterActivity(this);
 			servicio = new WebServiceDisCR();
 			servicio.execute(
 					"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm1-provincias.json",
 					"1");
-		}else{
+		} else {
 			cargarSpinnerProvincias();
 		}
 	}
 
 	public void cargarSpinnerProvincias() {
 
-		ArrayList<Provincia> provincias = Globales.obtenerInstancia().getProvincias();
+		ArrayList<Provincia> provincias = Controller.obtenerInstancia().getProvincias();
 
 		String[] datos = new String[provincias.size()];
 
@@ -107,18 +165,16 @@ public class RegisterActivity extends Activity {
 			datos[i] = provincias.get(i).getNombreProvincia();
 		}
 
-		cargarSpinner(spinnerProvincias, datos);
-
-	}
-
-	private void cargarSpinner(Spinner spinner, final String[] datos) {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
 				datos);
 
-		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		spinnerProvincias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(getApplicationContext(), datos[position], Toast.LENGTH_SHORT).show();
+				servicio = new WebServiceDisCR();
+				servicio.execute(
+						"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm2-cantones.json",
+						"2", String.valueOf(position + 1));
 			}
 
 			@Override
@@ -126,7 +182,64 @@ public class RegisterActivity extends Activity {
 			}
 		});
 
-		spinner.setAdapter(adapter);
+		spinnerProvincias.setAdapter(adapter);
+
+	}
+
+	public void cargarSpinnerCantones() {
+
+		ArrayList<Canton> cantones = Controller.obtenerInstancia().getCantones();
+
+		final String[] datos = new String[cantones.size()];
+
+		for (int i = 0; i < cantones.size(); i++) {
+			datos[i] = cantones.get(i).getNombreCanton();
+		}
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
+				datos);
+
+		spinnerCantones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				servicio = new WebServiceDisCR();
+				servicio.execute(
+						"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm3-distritos.json",
+						"3", Controller.obtenerInstancia().getIdCanton(datos[position]));
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+			}
+		});
+
+		spinnerCantones.setAdapter(adapter);
+	}
+
+	public void cargarSpinnerDistritos() {
+		ArrayList<Distrito> distritos = Controller.obtenerInstancia().getDistritos();
+
+		final String[] datos = new String[distritos.size()];
+
+		for (int i = 0; i < distritos.size(); i++) {
+			datos[i] = distritos.get(i).getNombreDistrito();
+		}
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
+				datos);
+
+		spinnerDistritos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+			}
+		});
+
+		spinnerDistritos.setAdapter(adapter);
 	}
 
 }

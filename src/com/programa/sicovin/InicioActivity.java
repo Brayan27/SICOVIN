@@ -1,18 +1,25 @@
 package com.programa.sicovin;
 
+import com.programa.controller.Controller;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class InicioActivity extends Activity {
-	
-	//https://www.youtube.com/watch?v=fH3S6HbbZ1k
-	
+
+	// https://www.youtube.com/watch?v=fH3S6HbbZ1k
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inicio);
+
+		Toast.makeText(this, "existe usuario distrito: " + Controller.obtenerInstancia().getUsuario().getDistrito(),
+				Toast.LENGTH_SHORT).show();
+
 	}
 
 	@Override
