@@ -125,4 +125,9 @@ public class Controller {
 		usuarioService = new UsuarioService(context);
 		usuario = usuarioService.addUsuario(usr);
 	}
+
+	public boolean existeUsuario(Usuario usr, Context context) {
+		usuarioService = new UsuarioService(context);
+		return usuarioService.existeUsuario(usr);
+	}
 }

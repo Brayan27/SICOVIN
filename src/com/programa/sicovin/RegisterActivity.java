@@ -41,6 +41,7 @@ public class RegisterActivity extends Activity {
 	private Spinner spinnerDistritos;
 	private EditText contrasena;
 	private Button botonRegistrar;
+	private TextView textInicio;
 	private WebServiceDisCR servicio;
 
 	@Override
@@ -87,6 +88,7 @@ public class RegisterActivity extends Activity {
 		spinnerDistritos = (Spinner) findViewById(R.id.spinnerDistrito);
 		contrasena = (EditText) findViewById(R.id.reg_password);
 		botonRegistrar = (Button) findViewById(R.id.btnRegister);
+		textInicio = (TextView) findViewById(R.id.link_to_login);
 	}
 
 	private void ajustarEventos() {
@@ -111,6 +113,13 @@ public class RegisterActivity extends Activity {
 				registrarUsuario();
 			}
 		});
+		textInicio.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent i = new Intent(getApplicationContext(), MainActivity.class);
+				startActivity(i);
+			}
+		});
 	}
 
 	private void registrarUsuario() {
@@ -133,13 +142,18 @@ public class RegisterActivity extends Activity {
 		usuario.setCanton(spinnerCantones.getSelectedItem().toString());
 		usuario.setDistrito(spinnerDistritos.getSelectedItem().toString());
 		usuario.setContrasena(contrasena.getText().toString());
-		Controller.obtenerInstancia().registrarUsuario(usuario, this);
 
-		if (Controller.obtenerInstancia().getUsuario() != null) {
-			Intent i = new Intent(getApplicationContext(), InicioActivity.class);
-			startActivity(i);
+		if (!Controller.obtenerInstancia().existeUsuario(usuario, this)) {
+			Controller.obtenerInstancia().registrarUsuario(usuario, this);
+			if (Controller.obtenerInstancia().getUsuario() != null) {
+				Intent i = new Intent(getApplicationContext(), InicioActivity.class);
+				startActivity(i);
+			} else {
+				Toast.makeText(this, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show();
+			}
 		} else {
-			Toast.makeText(this, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "No se pudo crear el usuario debido a que ya existe un usuario con este cédula.",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 

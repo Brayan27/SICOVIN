@@ -89,4 +89,13 @@ public class UsuarioService {
 				new String[] { String.valueOf(usuario.getIdUsuario()) });
 	}
 
+	public boolean existeUsuario(Usuario usr) {
+		open();
+		Cursor cursor = database.query("Usuario", null, "Cedula=?", new String[] { usr.getCedula() }, null, null, null,
+				null);
+		boolean bandera = cursor.moveToFirst();
+		close();
+		return bandera;
+	}
+
 }
