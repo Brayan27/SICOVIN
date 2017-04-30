@@ -3,21 +3,23 @@ package com.programa.controller;
 import java.util.ArrayList;
 
 import com.programa.model.Canton;
+import com.programa.model.ClaseUseSpinner;
 import com.programa.model.Distrito;
 import com.programa.model.Provincia;
 import com.programa.model.Usuario;
 import com.programa.services.UsuarioService;
-import com.programa.sicovin.RegisterActivity;
+import com.programa.services.WebServiceDisCR;
 
 import android.content.Context;
 import android.util.Log;
 
 public class Controller {
-	private String datos;
+
 	private ArrayList<Provincia> provincias;
 	private ArrayList<Canton> cantones;
 	private ArrayList<Distrito> distritos;
-	private RegisterActivity registerActivity;
+	private ClaseUseSpinner claseUseSpinner;
+	private WebServiceDisCR webServiceDisCR;
 	private UsuarioService usuarioService;
 	private Usuario usuario;
 	public static Controller global;
@@ -26,20 +28,10 @@ public class Controller {
 		provincias = new ArrayList<>();
 		cantones = new ArrayList<>();
 		distritos = new ArrayList<>();
-		datos = "";
 	}
 
 	public static Controller obtenerInstancia() {
 		return (global == null) ? global = new Controller() : global;
-	}
-
-	public String getDatos() {
-		return datos;
-	}
-
-	public void setDatos(String datos) {
-		this.datos = datos;
-		System.out.println(datos);
 	}
 
 	public ArrayList<Provincia> getProvincias() {
@@ -48,7 +40,8 @@ public class Controller {
 
 	public void setProvincias(ArrayList<Provincia> provincias) {
 		this.provincias = provincias;
-		cargarSpinnerProvincias();
+		claseUseSpinner.cargarProvincias();
+		// cargarSpinnerProvincias();
 	}
 
 	public ArrayList<Canton> getCantones() {
@@ -57,7 +50,7 @@ public class Controller {
 
 	public void setCantones(ArrayList<Canton> cantones) {
 		this.cantones = cantones;
-		cargarSpinnerCantones();
+		claseUseSpinner.cargarCantones();
 	}
 
 	public ArrayList<Distrito> getDistritos() {
@@ -66,11 +59,7 @@ public class Controller {
 
 	public void setDistritos(ArrayList<Distrito> distritos) {
 		this.distritos = distritos;
-		cargarSpinnerDistritos();
-	}
-
-	public RegisterActivity getRegisterActivity() {
-		return registerActivity;
+		claseUseSpinner.cargarDistritos();
 	}
 
 	public Usuario getUsuario() {
@@ -79,22 +68,6 @@ public class Controller {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public void setRegisterActivity(RegisterActivity registerActivity) {
-		this.registerActivity = registerActivity;
-	}
-
-	public void cargarSpinnerProvincias() {
-		registerActivity.cargarSpinnerProvincias();
-	}
-
-	public void cargarSpinnerCantones() {
-		registerActivity.cargarSpinnerCantones();
-	}
-
-	public void cargarSpinnerDistritos() {
-		registerActivity.cargarSpinnerDistritos();
 	}
 
 	public String getIdCanton(String nombreCanton) {
@@ -125,5 +98,20 @@ public class Controller {
 	public boolean existeUsuario(Usuario usr, Context context) {
 		usuarioService = new UsuarioService(context);
 		return usuarioService.existeUsuario(usr);
+	}
+
+	public int actualizarUsuario(Usuario usr, Context context) {
+		int AffectedRow = 0;
+		usuarioService = new UsuarioService(context);
+		usr.setIdUsuario(usuario.getIdUsuario());
+		AffectedRow = usuarioService.updateUsuario(usr);
+		usuario = (AffectedRow == 0) ? usuario : usr;
+		return AffectedRow;
+	}
+
+	public void iniciarWebServices(String URL, String metodo, String dato, ClaseUseSpinner clase) {
+		webServiceDisCR = new WebServiceDisCR();
+		claseUseSpinner = clase;
+		webServiceDisCR.execute(URL, metodo, dato);
 	}
 }

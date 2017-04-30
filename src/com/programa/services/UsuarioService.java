@@ -68,7 +68,7 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	// Updating Employee
+	// Updating User
 	public int updateUsuario(Usuario usuario) {
 		open();
 		ContentValues values = new ContentValues();
@@ -80,11 +80,15 @@ public class UsuarioService {
 		values.put("Provincia", usuario.getProvincia());
 		values.put("Canton", usuario.getCanton());
 		values.put("Distrito", usuario.getDistrito());
-		values.put("Contrasena", usuario.getContrasena());
+		if (!usuario.getContrasena().equals("")) {
+			values.put("Contrasena", usuario.getContrasena());
+		}
 
 		// updating row
-		return database.update("Usuario", values, "idUsuario=?",
+		int affectedRow = database.update("Usuario", values, "idUsuario=?",
 				new String[] { String.valueOf(usuario.getIdUsuario()) });
+		close();
+		return affectedRow;
 	}
 
 	public boolean existeUsuario(Usuario usr) {

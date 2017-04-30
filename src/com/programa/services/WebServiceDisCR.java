@@ -89,7 +89,6 @@ public class WebServiceDisCR extends AsyncTask<String, Integer, String> {
 
 	@Override
 	protected void onPostExecute(String aVoid) {
-		Controller.obtenerInstancia().setDatos(aVoid);
 		if (metodo == 1) {
 			Controller.obtenerInstancia().setProvincias(provincias);
 		}
@@ -103,7 +102,6 @@ public class WebServiceDisCR extends AsyncTask<String, Integer, String> {
 
 	@Override
 	protected void onPreExecute() {
-		Controller.obtenerInstancia().setDatos("");
 		super.onPreExecute();
 	}
 

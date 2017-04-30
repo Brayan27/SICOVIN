@@ -5,236 +5,226 @@
     android:layout_height="fill_parent"
     android:fillViewport="true" >
 
-<!--     <RelativeLayout -->
-<!--         android:layout_width="fill_parent" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:background="#fff" > -->
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff" >
 
-<!--         Header  Starts -->
+        <!-- Header  Starts -->
 
-<!--         <LinearLayout -->
-<!--             android:id="@+id/header" -->
-<!--             android:layout_width="fill_parent" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:background="@layout/header_gradient" -->
-<!--             android:paddingBottom="5dip" -->
-<!--             android:paddingTop="5dip" > -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@layout/header_gradient"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
 
-<!--             Logo Start -->
+            <!-- Logo Start -->
 
-<!--             <ImageView -->
-<!--                 android:layout_width="wrap_content" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginLeft="10dip" -->
-<!--                 android:src="@mipmap/ic_launcher" /> -->
-<!--             Logo Ends -->
-<!--         </LinearLayout> -->
-<!--         Header Ends -->
-<!--         Footer Start -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:src="@mipmap/ic_launcher" />
+            <!-- Logo Ends -->
+        </LinearLayout>
+        <!-- Header Ends -->
+        <!-- Footer Start -->
 
-<!--         <LinearLayout -->
-<!--             android:id="@+id/footer" -->
-<!--             android:layout_width="fill_parent" -->
-<!--             android:layout_height="90dip" -->
-<!--             android:layout_alignParentBottom="true" -->
-<!--             android:background="@layout/footer_repeat" > -->
-<!--         </LinearLayout> -->
-<!--         Footer Ends -->
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="fill_parent"
+            android:layout_height="90dip"
+            android:layout_alignParentBottom="true"
+            android:background="@layout/footer_repeat" >
+        </LinearLayout>
+        <!-- Footer Ends -->
 
 
-<!--         Registration Form -->
-<!--         Registration Form Ends -->
+        <!-- Registration Form -->
+        <!-- Registration Form Ends -->
 
-<!--         <LinearLayout -->
-<!--             xmlns:android="http://schemas.android.com/apk/res/android" -->
-<!--             android:layout_width="match_parent" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_alignParentLeft="true" -->
-<!--             android:layout_below="@+id/header" -->
-<!--             android:orientation="vertical" -->
-<!--             android:padding="10dip" > -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/header"
+            android:orientation="vertical"
+            android:padding="10dip" >
+            cedula
 
-<!--             cedula -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Cédula del menor"
+                android:textColor="#372c24" />
 
-<!--             <TextView -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Cédula del menor" -->
-<!--                 android:textColor="#372c24" /> -->
+            <EditText
+                android:id="@+id/mod_cedula"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:enabled="false"
+                android:singleLine="true" >
 
-<!--             <EditText -->
-<!--                 android:id="@+id/reg_cedula" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginBottom="20dip" -->
-<!--                 android:layout_marginTop="5dip" -->
-<!--                 android:hint="0-0000-0000" -->
-<!--                 android:singleLine="true" > -->
+                <requestFocus />
+            </EditText>
+            <!-- nombre completo -->
 
-<!--                 <requestFocus /> -->
-<!--             </EditText> -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del menor"
+                android:textColor="#372c24" />
 
-<!--             nombre completo -->
+            <EditText
+                android:id="@+id/mod_nombreCompleto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:hint="Nombre completo"
+                android:singleLine="true" />
+            <!-- Edad -->
 
-<!--             <TextView -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Nombre del menor" -->
-<!--                 android:textColor="#372c24" /> -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Nacimiento del niño"
+                android:textColor="#372c24" />
+            <!-- peso -->
 
-<!--             <EditText -->
-<!--                 android:id="@+id/reg_nombreCompleto" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginBottom="20dip" -->
-<!--                 android:layout_marginTop="5dip" -->
-<!--                 android:hint="Nombre completo" -->
-<!--                 android:singleLine="true" /> -->
+            <DatePicker
+                android:id="@+id/datePicker2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner" />
 
-<!--             Edad -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Peso del menor"
+                android:textColor="#372c24" />
 
-<!--             <TextView -->
-<!--                 android:id="@+id/textEdad" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Fecha de Nacimiento del niño" -->
-<!--                 android:textColor="#372c24" /> -->
+            <EditText
+                android:id="@+id/mod_peso"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:digits="0123456789."
+                android:hint="Kg"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+            <!-- estatura -->
 
-<!--             peso -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Estatura del menor"
+                android:textColor="#372c24" />
 
-<!--             <DatePicker -->
-<!--                 android:id="@+id/datePicker1" -->
-<!--                 android:layout_width="wrap_content" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:calendarViewShown="false" /> -->
+            <EditText
+                android:id="@+id/mod_estatura"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="5dip"
+                android:digits="0123456789."
+                android:hint="Metros"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+            <!-- centro medico -->
 
-<!--             <TextView -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Peso del menor" -->
-<!--                 android:textColor="#372c24" /> -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Domicilio"
+                android:textColor="#372c24" />
 
-<!--             <EditText -->
-<!--                 android:id="@+id/reg_peso" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginBottom="20dip" -->
-<!--                 android:layout_marginTop="5dip" -->
-<!--                 android:digits="0123456789." -->
-<!--                 android:hint="Kg" -->
-<!--                 android:inputType="numberDecimal" -->
-<!--                 android:singleLine="true" /> -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-<!--             estatura -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Provincia"
+                    android:textColor="#372c24" />
 
-<!--             <TextView -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Estatura del menor" -->
-<!--                 android:textColor="#372c24" /> -->
+                <Spinner
+                    android:id="@+id/spinnerProvinciaMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
-<!--             <EditText -->
-<!--                 android:id="@+id/reg_estatura" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginBottom="20dip" -->
-<!--                 android:layout_marginTop="5dip" -->
-<!--                 android:digits="0123456789." -->
-<!--                 android:hint="Metros" -->
-<!--                 android:inputType="numberDecimal" -->
-<!--                 android:singleLine="true" /> -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Cantón"
+                    android:textColor="#372c24" />
 
-<!--             centro medico -->
+                <Spinner
+                    android:id="@+id/spinnerCantonMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
-<!--             <TextView -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Domicilio" -->
-<!--                 android:textColor="#372c24" /> -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Distrito"
+                    android:textColor="#372c24" />
 
-<!--             <LinearLayout -->
-<!--                 android:layout_width="match_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:orientation="vertical" > -->
+                <Spinner
+                    android:id="@+id/spinnerDistritoMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <!-- contraseña -->
 
-<!--                 <TextView -->
-<!--                     android:layout_width="fill_parent" -->
-<!--                     android:layout_height="wrap_content" -->
-<!--                     android:layout_marginTop="15dp" -->
-<!--                     android:text="Provincia" -->
-<!--                     android:textColor="#372c24" /> -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Contraseña"
+                android:textColor="#372c24" />
 
-<!--                 <Spinner -->
-<!--                     android:id="@+id/spinnerProvincia" -->
-<!--                     android:layout_width="wrap_content" -->
-<!--                     android:layout_height="wrap_content" -->
-<!--                     android:layout_weight="1" /> -->
+            <EditText
+                android:id="@+id/mod_password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:password="true"
+                android:singleLine="true" />
+            <!-- boton registrar -->
 
-<!--                 <TextView -->
-<!--                     android:layout_width="fill_parent" -->
-<!--                     android:layout_height="wrap_content" -->
-<!--                     android:layout_marginTop="15dp" -->
-<!--                     android:text="Cantón" -->
-<!--                     android:textColor="#372c24" /> -->
+            <Button
+                android:id="@+id/btnModificar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="Modificar Usuario" />
+            <!-- regresar al login -->
 
-<!--                 <Spinner -->
-<!--                     android:id="@+id/spinnerCanton" -->
-<!--                     android:layout_width="wrap_content" -->
-<!--                     android:layout_height="wrap_content" -->
-<!--                     android:layout_weight="1" /> -->
-
-<!--                 <TextView -->
-<!--                     android:layout_width="fill_parent" -->
-<!--                     android:layout_height="wrap_content" -->
-<!--                     android:layout_marginTop="15dp" -->
-<!--                     android:text="Distrito" -->
-<!--                     android:textColor="#372c24" /> -->
-
-<!--                 <Spinner -->
-<!--                     android:id="@+id/spinnerDistrito" -->
-<!--                     android:layout_width="wrap_content" -->
-<!--                     android:layout_height="wrap_content" -->
-<!--                     android:layout_weight="1" /> -->
-<!--             </LinearLayout> -->
-
-<!--             contraseña -->
-
-<!--             <TextView -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Contraseña" -->
-<!--                 android:textColor="#372c24" /> -->
-
-<!--             <EditText -->
-<!--                 android:id="@+id/reg_password" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginTop="5dip" -->
-<!--                 android:password="true" -->
-<!--                 android:singleLine="true" /> -->
-
-<!--             boton registrar -->
-
-<!--             <Button -->
-<!--                 android:id="@+id/btnRegister" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginTop="10dip" -->
-<!--                 android:text="Registrar Cuenta" /> -->
-
-<!--             regresar al login -->
-
-<!--             <TextView -->
-<!--                 android:id="@+id/link_to_login" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginBottom="40dip" -->
-<!--                 android:layout_marginTop="40dip" -->
-<!--                 android:gravity="center" -->
-<!--                 android:text="Ya tiene una cuenta! Regresar al Inicio" -->
-<!--                 android:textColor="#025f7c" -->
-<!--                 android:textSize="20dip" /> -->
-<!--         </LinearLayout> -->
-<!--     </RelativeLayout> -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dip"
+                android:layout_marginTop="40dip"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#025f7c"
+                android:textSize="20dip" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </ScrollView>

@@ -5,12 +5,11 @@ import java.util.Calendar;
 
 import com.programa.controller.Controller;
 import com.programa.model.Canton;
+import com.programa.model.ClaseUseSpinner;
 import com.programa.model.Distrito;
 import com.programa.model.Provincia;
 import com.programa.model.Usuario;
-import com.programa.services.WebServiceDisCR;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,7 +24,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends ClaseUseSpinner {
 
 	// http://data.okfn.org/data/investigacion/divisiones-territoriales-costa-rica
 
@@ -34,14 +33,12 @@ public class RegisterActivity extends Activity {
 	private EditText peso;
 	private EditText estatura;
 	private DatePicker datepicker;
-	private TextView textEdad;
 	private Spinner spinnerProvincias;
 	private Spinner spinnerCantones;
 	private Spinner spinnerDistritos;
 	private EditText contrasena;
 	private Button botonRegistrar;
 	private TextView textInicio;
-	private WebServiceDisCR servicio;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +74,8 @@ public class RegisterActivity extends Activity {
 		nombre = (EditText) findViewById(R.id.reg_nombreCompleto);
 		peso = (EditText) findViewById(R.id.reg_peso);
 		estatura = (EditText) findViewById(R.id.reg_estatura);
-		textEdad = (TextView) findViewById(R.id.textEdad);
 		datepicker = (DatePicker) findViewById(R.id.datePicker1);
+		datepicker.setMaxDate(Calendar.getInstance().getTimeInMillis());
 		spinnerProvincias = (Spinner) findViewById(R.id.spinnerProvincia);
 		spinnerCantones = (Spinner) findViewById(R.id.spinnerCanton);
 		spinnerDistritos = (Spinner) findViewById(R.id.spinnerDistrito);
@@ -137,17 +134,16 @@ public class RegisterActivity extends Activity {
 
 	private void serviceSpinnerProvincias() {
 		if (Controller.obtenerInstancia().getProvincias().isEmpty()) {
-			Controller.obtenerInstancia().setRegisterActivity(this);
-			servicio = new WebServiceDisCR();
-			servicio.execute(
+			ejecutarWebService(
 					"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm1-provincias.json",
-					"1");
+					"1", "");
 		} else {
-			cargarSpinnerProvincias();
+			cargarProvincias();
 		}
 	}
 
-	public void cargarSpinnerProvincias() {
+	@Override
+	public void cargarProvincias() {
 
 		ArrayList<Provincia> provincias = Controller.obtenerInstancia().getProvincias();
 
@@ -163,8 +159,7 @@ public class RegisterActivity extends Activity {
 		spinnerProvincias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				servicio = new WebServiceDisCR();
-				servicio.execute(
+				ejecutarWebService(
 						"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm2-cantones.json",
 						"2", String.valueOf(position + 1));
 			}
@@ -178,7 +173,8 @@ public class RegisterActivity extends Activity {
 
 	}
 
-	public void cargarSpinnerCantones() {
+	@Override
+	public void cargarCantones() {
 
 		ArrayList<Canton> cantones = Controller.obtenerInstancia().getCantones();
 
@@ -194,8 +190,7 @@ public class RegisterActivity extends Activity {
 		spinnerCantones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				servicio = new WebServiceDisCR();
-				servicio.execute(
+				ejecutarWebService(
 						"https://raw.githubusercontent.com/investigacion/divisiones-territoriales-data/master/data/json/adm3-distritos.json",
 						"3", Controller.obtenerInstancia().getIdCanton(datos[position]));
 			}
@@ -208,7 +203,8 @@ public class RegisterActivity extends Activity {
 		spinnerCantones.setAdapter(adapter);
 	}
 
-	public void cargarSpinnerDistritos() {
+	@Override
+	public void cargarDistritos() {
 		ArrayList<Distrito> distritos = Controller.obtenerInstancia().getDistritos();
 
 		final String[] datos = new String[distritos.size()];

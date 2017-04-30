@@ -1,25 +1,41 @@
 package com.programa.sicovin;
 
-import com.programa.controller.Controller;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
 
 public class InicioActivity extends Activity {
 
 	// https://www.youtube.com/watch?v=fH3S6HbbZ1k
+
+	private Button botonIrInicio;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inicio);
 
-		Toast.makeText(this, "existe usuario distrito: " + Controller.obtenerInstancia().getUsuario().getDistrito(),
-				Toast.LENGTH_SHORT).show();
+		inicializarComponentes();
+		ajustarEventos();
 
+	}
+
+	private void inicializarComponentes() {
+		botonIrInicio = (Button) findViewById(R.id.button1);
+	}
+
+	private void ajustarEventos() {
+		botonIrInicio.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent i = new Intent(getApplicationContext(), ModificarActivity.class);
+				startActivity(i);
+			}
+		});
 	}
 
 	@Override
