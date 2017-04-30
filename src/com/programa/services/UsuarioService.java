@@ -37,8 +37,7 @@ public class UsuarioService {
 		ContentValues values = new ContentValues();
 		values.put("Cedula", usuario.getCedula());
 		values.put("Nombre", usuario.getNombre());
-		values.put("MenorAnio", usuario.getMenorAnio());
-		values.put("Edad", usuario.getEdad());
+		values.put("FechaNacimiento", usuario.getFechaNacimiento());
 		values.put("Peso", usuario.getPeso());
 		values.put("Estatura", usuario.getEstatura());
 		values.put("Provincia", usuario.getProvincia());
@@ -61,9 +60,9 @@ public class UsuarioService {
 		if (cursor != null) {
 			cursor.moveToFirst();
 			usuario = new Usuario(Long.parseLong(cursor.getString(0)), cursor.getString(1), cursor.getString(2),
-					Integer.parseInt(cursor.getString(3)), Integer.parseInt(cursor.getString(4)),
-					Double.parseDouble(cursor.getString(5)), Double.parseDouble(cursor.getString(6)),
-					cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10));
+					Long.parseLong(cursor.getString(3)), Double.parseDouble(cursor.getString(4)),
+					Double.parseDouble(cursor.getString(5)), cursor.getString(6), cursor.getString(7),
+					cursor.getString(8), cursor.getString(9));
 		}
 		close();
 		return usuario;
@@ -75,8 +74,7 @@ public class UsuarioService {
 		ContentValues values = new ContentValues();
 		values.put("Cedula", usuario.getCedula());
 		values.put("Nombre", usuario.getNombre());
-		values.put("MenorAnio", usuario.getMenorAnio());
-		values.put("Edad", usuario.getEdad());
+		values.put("FechaNacimiento", usuario.getFechaNacimiento());
 		values.put("Peso", usuario.getPeso());
 		values.put("Estatura", usuario.getEstatura());
 		values.put("Provincia", usuario.getProvincia());

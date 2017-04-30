@@ -2,18 +2,14 @@ package com.programa.controller;
 
 import java.util.ArrayList;
 
-import com.programa.DAO.UsuarioDAO;
 import com.programa.model.Canton;
 import com.programa.model.Distrito;
 import com.programa.model.Provincia;
 import com.programa.model.Usuario;
 import com.programa.services.UsuarioService;
-import com.programa.sicovin.MainActivity;
 import com.programa.sicovin.RegisterActivity;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
 public class Controller {

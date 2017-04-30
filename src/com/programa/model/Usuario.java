@@ -5,8 +5,7 @@ public class Usuario {
 	private long idUsuario;
 	private String Cedula;
 	private String Nombre;
-	private int MenorAnio;
-	private int Edad;
+	private long FechaNacimiento;
 	private double Peso;
 	private double Estatura;
 	private String Provincia;
@@ -14,14 +13,13 @@ public class Usuario {
 	private String Distrito;
 	private String Contrasena;
 
-	public Usuario(long idusuario, String cedula, String nombre, int menorAnio, int edad, double peso, double estatura,
+	public Usuario(long idusuario, String cedula, String nombre, long fechaNacimiento, double peso, double estatura,
 			String provincia, String canton, String distrito, String contrasena) {
 		super();
 		idUsuario = idusuario;
 		Cedula = cedula;
 		Nombre = nombre;
-		MenorAnio = menorAnio;
-		Edad = edad;
+		FechaNacimiento = fechaNacimiento;
 		Peso = peso;
 		Estatura = estatura;
 		Provincia = provincia;
@@ -32,17 +30,6 @@ public class Usuario {
 
 	public Usuario() {
 		super();
-		idUsuario = 0;
-		Cedula = "";
-		Nombre = "";
-		MenorAnio = 0;
-		Edad = 0;
-		Peso = 0;
-		Estatura = 0;
-		Provincia = "";
-		Canton = "";
-		Distrito = "";
-		Contrasena = "";
 	}
 
 	public long getIdUsuario() {
@@ -69,20 +56,12 @@ public class Usuario {
 		Nombre = nombre;
 	}
 
-	public int getMenorAnio() {
-		return MenorAnio;
+	public long getFechaNacimiento() {
+		return FechaNacimiento;
 	}
 
-	public void setMenorAnio(int menorAnio) {
-		MenorAnio = menorAnio;
-	}
-
-	public double getEdad() {
-		return Edad;
-	}
-
-	public void setEdad(int edad) {
-		Edad = edad;
+	public void setFechaNacimiento(long fechaNacimiento) {
+		FechaNacimiento = fechaNacimiento;
 	}
 
 	public double getPeso() {

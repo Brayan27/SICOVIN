@@ -1,6 +1,7 @@
 package com.programa.sicovin;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.programa.controller.Controller;
 import com.programa.model.Canton;
@@ -18,7 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -32,10 +33,8 @@ public class RegisterActivity extends Activity {
 	private EditText nombre;
 	private EditText peso;
 	private EditText estatura;
-	private CheckBox menorAnio;
+	private DatePicker datepicker;
 	private TextView textEdad;
-	private EditText reg_edad;
-	private EditText reg_edadMeses;
 	private Spinner spinnerProvincias;
 	private Spinner spinnerCantones;
 	private Spinner spinnerDistritos;
@@ -78,11 +77,8 @@ public class RegisterActivity extends Activity {
 		nombre = (EditText) findViewById(R.id.reg_nombreCompleto);
 		peso = (EditText) findViewById(R.id.reg_peso);
 		estatura = (EditText) findViewById(R.id.reg_estatura);
-		menorAnio = (CheckBox) findViewById(R.id.checkBoxMenor);
 		textEdad = (TextView) findViewById(R.id.textEdad);
-		textEdad.setText("Edad en Años");
-		reg_edad = (EditText) findViewById(R.id.reg_edad);
-		reg_edadMeses = (EditText) findViewById(R.id.reg_edadMeses);
+		datepicker = (DatePicker) findViewById(R.id.datePicker1);
 		spinnerProvincias = (Spinner) findViewById(R.id.spinnerProvincia);
 		spinnerCantones = (Spinner) findViewById(R.id.spinnerCanton);
 		spinnerDistritos = (Spinner) findViewById(R.id.spinnerDistrito);
@@ -92,21 +88,6 @@ public class RegisterActivity extends Activity {
 	}
 
 	private void ajustarEventos() {
-		menorAnio.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				if (menorAnio.isChecked()) {
-					textEdad.setText("Edad en Meses");
-					reg_edad.setVisibility(View.GONE);
-					reg_edadMeses.setVisibility(View.VISIBLE);
-				} else {
-					textEdad.setText("Edad en Años");
-					reg_edadMeses.setVisibility(View.GONE);
-					reg_edad.setVisibility(View.VISIBLE);
-				}
-			}
-		});
-
 		botonRegistrar.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -123,19 +104,16 @@ public class RegisterActivity extends Activity {
 	}
 
 	private void registrarUsuario() {
-		int edad = 0;
-		int menor = 0;
-		if (menorAnio.isChecked()) {
-			menor = 1;
-			edad = Integer.valueOf(reg_edadMeses.getText().toString());
-		} else {
-			edad = Integer.valueOf(reg_edad.getText().toString());
-		}
 		Usuario usuario = new Usuario();
 		usuario.setCedula(cedula.getText().toString());
 		usuario.setNombre(nombre.getText().toString());
-		usuario.setMenorAnio(menor);
-		usuario.setEdad(edad);
+		int day = datepicker.getDayOfMonth();
+		int month = datepicker.getMonth();
+		int year = datepicker.getYear();
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(year, month, day);
+		usuario.setFechaNacimiento(calendar.getTimeInMillis());
 		usuario.setPeso(Double.valueOf(peso.getText().toString()));
 		usuario.setEstatura(Double.valueOf(estatura.getText().toString()));
 		usuario.setProvincia(spinnerProvincias.getSelectedItem().toString());

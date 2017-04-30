@@ -59,7 +59,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Cédula niño"
+                android:text="Cédula del menor"
                 android:textColor="#372c24" />
 
             <EditText
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre del niño"
+                android:text="Nombre del menor"
                 android:textColor="#372c24" />
 
             <EditText
@@ -93,49 +93,26 @@
 
             <!-- Edad -->
 
-            <CheckBox
-                android:id="@+id/checkBoxMenor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Menor de un año" />
-
             <TextView
                 android:id="@+id/textEdad"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Edad"
+                android:text="Fecha de Nacimiento del niño"
                 android:textColor="#372c24" />
 
-            <EditText
-                android:id="@+id/reg_edad"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dip"
-                android:layout_marginTop="5dip"
-                android:digits="0123456789."
-                android:hint="Edad"
-                android:inputType="numberDecimal"
-                android:maxLength="1"
-                android:singleLine="true" />
-
-            <EditText
-                android:id="@+id/reg_edadMeses"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dip"
-                android:layout_marginTop="5dip"
-                android:digits="0123456789"
-                android:inputType="numberDecimal"
-                android:maxLength="2"
-                android:singleLine="true"
-                android:visibility="gone" />
-
             <!-- peso -->
+
+            <DatePicker
+                android:id="@+id/datePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Peso del niño"
+                android:text="Peso del menor"
                 android:textColor="#372c24" />
 
             <EditText
@@ -154,7 +131,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Estatura del niño"
+                android:text="Estatura del menor"
                 android:textColor="#372c24" />
 
             <EditText
@@ -173,7 +150,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Centro Médico"
+                android:text="Domicilio"
                 android:textColor="#372c24" />
 
             <LinearLayout
