@@ -1,6 +1,6 @@
 package com.programa.services;
 
-import com.programa.DAO.UsuarioDAO;
+import com.programa.DAO.DatabaseHelper;
 import com.programa.model.Usuario;
 
 import android.content.ContentValues;
@@ -18,7 +18,7 @@ public class UsuarioService {
 	SQLiteDatabase database;
 
 	public UsuarioService(Context context) {
-		dbhandler = new UsuarioDAO(context);
+		dbhandler = new DatabaseHelper(context);
 	}
 
 	public void open() {

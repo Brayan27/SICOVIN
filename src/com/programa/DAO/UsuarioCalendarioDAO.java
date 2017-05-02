@@ -4,16 +4,18 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class UsuarioDAO extends SQLiteOpenHelper {
+public class UsuarioCalendarioDAO extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "sicovin.db";
 	private static final int DATABASE_VERSION = 1;
-	private static final String TABLE_NAME = "Usuario";
+	private static final String TABLE_NAME = "UsuarioCalendario";
 	private static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME
-			+ " (idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, Cedula TEXT, Nombre TEXT, FechaNacimiento INTEGER, "
-			+ "Peso REAL, Estatura REAL, Provincia TEXT, Canton TEXT, Distrito TEXT," + "Contrasena TEXT)";
+			+ " (idUsuario INTEGER,idVacuna INTEGER, edadAplicacion INTEGER, fechaAplicacion INTEGER,"
+			+ "PRIMARY KEY(idUsuario,idVacuna,edadAplicacion),"
+			+ "FOREIGN KEY(idUsuario) REFERENCES Usuario(idUsuario),"
+			+ "FOREIGN KEY(idVacuna,edadAplicacion) REFERENCES CalendarioVacunacion(idVacuna,edadAplicacion))";
 
-	public UsuarioDAO(Context context) {
+	public UsuarioCalendarioDAO(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 

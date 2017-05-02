@@ -82,8 +82,10 @@ public class MainActivity extends Activity {
 
 			if (Controller.obtenerInstancia().getUsuario() != null) {
 				Toast.makeText(this, "Éxito al iniciar sesión", Toast.LENGTH_SHORT).show();
+				cargarVacunas();
 				Intent i = new Intent(getApplicationContext(), InicioActivity.class);
 				startActivity(i);
+
 			} else {
 				Toast.makeText(this, "Error en las credenciales", Toast.LENGTH_SHORT).show();
 			}
@@ -92,4 +94,16 @@ public class MainActivity extends Activity {
 			Log.e(null, ex.getCause().toString());
 		}
 	}
+
+	private void cargarVacunas() {
+
+		try {
+			Controller.obtenerInstancia().cargarTablaVacuna(this);
+			Toast.makeText(this, "Se cargaron las vacunas", Toast.LENGTH_SHORT).show();
+		} catch (Exception ex) {
+			Log.e("Error", ex.getMessage());
+		}
+
+	}
+
 }

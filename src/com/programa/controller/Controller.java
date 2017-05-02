@@ -2,12 +2,16 @@ package com.programa.controller;
 
 import java.util.ArrayList;
 
+import com.programa.model.CalendarioVacunacion;
 import com.programa.model.Canton;
 import com.programa.model.ClaseUseSpinner;
 import com.programa.model.Distrito;
 import com.programa.model.Provincia;
 import com.programa.model.Usuario;
+import com.programa.model.Vacuna;
+import com.programa.services.CalendarioVacunacionService;
 import com.programa.services.UsuarioService;
+import com.programa.services.VacunaService;
 import com.programa.services.WebServiceDisCR;
 
 import android.content.Context;
@@ -18,9 +22,13 @@ public class Controller {
 	private ArrayList<Provincia> provincias;
 	private ArrayList<Canton> cantones;
 	private ArrayList<Distrito> distritos;
+	private ArrayList<Vacuna> vacunas;
+	private ArrayList<CalendarioVacunacion> calendarioVacunaciones;
 	private ClaseUseSpinner claseUseSpinner;
 	private WebServiceDisCR webServiceDisCR;
 	private UsuarioService usuarioService;
+	private VacunaService vacunaService;
+	private CalendarioVacunacionService calendarioVacunacionService;
 	private Usuario usuario;
 	public static Controller global;
 
@@ -28,6 +36,7 @@ public class Controller {
 		provincias = new ArrayList<>();
 		cantones = new ArrayList<>();
 		distritos = new ArrayList<>();
+		vacunas = new ArrayList<>();
 	}
 
 	public static Controller obtenerInstancia() {
@@ -68,6 +77,10 @@ public class Controller {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public ArrayList<Vacuna> getVacunas() {
+		return vacunas;
 	}
 
 	public String getIdCanton(String nombreCanton) {
@@ -113,5 +126,70 @@ public class Controller {
 		webServiceDisCR = new WebServiceDisCR();
 		claseUseSpinner = clase;
 		webServiceDisCR.execute(URL, metodo, dato);
+	}
+
+	public void cargarTablaVacuna(Context context) {
+		vacunaService = new VacunaService(context);
+		if (!vacunaService.existeTabla()) {
+			ArrayList<Vacuna> vacunas = new ArrayList<Vacuna>();
+			vacunas.add(new Vacuna(1, "BCG"));
+			vacunas.add(new Vacuna(2, "Hepatitis B"));
+			vacunas.add(new Vacuna(3, "Haemophilus influenzae"));
+			vacunas.add(new Vacuna(4, "DPT"));
+			vacunas.add(new Vacuna(5, "Antipolio"));
+			vacunas.add(new Vacuna(6, "SRP"));
+			vacunas.add(new Vacuna(7, "Varicela"));
+			vacunas.add(new Vacuna(8, "Antineumocóccica"));
+			for (Vacuna vacuna : vacunas) {
+				vacunaService = new VacunaService(context);
+				vacunaService.addVacuna(vacuna);
+			}
+		} else {
+			Log.e("Error", "Ya existe la tabla");
+		}
+	}
+
+	public void consultarVacunas(Context context) {
+		vacunaService = new VacunaService(context);
+		vacunas = vacunaService.getAllVacunas();
+	}
+
+	public void cargarTablaCalendarioVacunacion(Context context) {
+		calendarioVacunacionService = new CalendarioVacunacionService(context);
+		if (!calendarioVacunacionService.existeTabla()) {
+			calendarioVacunaciones = new ArrayList<CalendarioVacunacion>();
+			calendarioVacunaciones.add(new CalendarioVacunacion(1, 0, "Recien Nacido"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(2, 0, "Recien Nacido"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(2, 2, "1° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(2, 6, "2° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(3, 2, "1° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(3, 4, "2° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(3, 6, "3° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(3, 15, "Refuerzo"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(4, 2, "1° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(4, 4, "2° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(4, 6, "3° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(4, 15, "Refuerzo"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(4, 48, "Refuerzo"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(4, 120, "Refuerzo"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(5, 2, "1° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(5, 4, "2° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(5, 6, "3° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(5, 48, "Refuerzo"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(6, 15, "1° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(6, 84, "2° Refuerzo"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(7, 15, "1° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(8, 2, "1° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(8, 4, "2° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(8, 6, "3° Dosis"));
+			calendarioVacunaciones.add(new CalendarioVacunacion(8, 15, "Refuerzo"));
+			for (CalendarioVacunacion calendarioVacunaciones : calendarioVacunaciones) {
+				calendarioVacunacionService = new CalendarioVacunacionService(context);
+				calendarioVacunacionService.addCalendarioVacunacion(calendarioVacunaciones);
+			}
+		} else {
+			Log.e("Error", "Ya existe la tabla");
+			calendarioVacunaciones = calendarioVacunacionService.getAllCalendarioVacunacion();
+		}
 	}
 }

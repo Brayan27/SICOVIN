@@ -11,24 +11,6 @@
         android:background="#fff" >
 
         <!-- Header  Starts -->
-
-        <LinearLayout
-            android:id="@+id/header"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@layout/header_gradient"
-            android:paddingBottom="5dip"
-            android:paddingTop="5dip" >
-
-            <!-- Logo Start -->
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dip"
-                android:src="@mipmap/ic_launcher" />
-            <!-- Logo Ends -->
-        </LinearLayout>
         <!-- Header Ends -->
         <!-- Footer Start -->
 
@@ -50,7 +32,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/header"
             android:orientation="vertical"
             android:padding="10dip" >
             cedula
@@ -225,6 +206,41 @@
                 android:textColor="#025f7c"
                 android:textSize="20dip" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@layout/header_gradient"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:contentDescription="Logo App"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="10dp"
+                    android:text="MODIFICAR"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+        </LinearLayout>
+
     </RelativeLayout>
 
 </ScrollView>

@@ -2,6 +2,7 @@ package com.programa.sicovin;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,12 +14,13 @@ public class InicioActivity extends Activity {
 	// https://www.youtube.com/watch?v=fH3S6HbbZ1k
 
 	private Button botonIrInicio;
+	private Button botonVacunas;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inicio);
-
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		inicializarComponentes();
 		ajustarEventos();
 
@@ -26,6 +28,7 @@ public class InicioActivity extends Activity {
 
 	private void inicializarComponentes() {
 		botonIrInicio = (Button) findViewById(R.id.button1);
+		botonVacunas = (Button) findViewById(R.id.button2);
 	}
 
 	private void ajustarEventos() {
@@ -33,6 +36,13 @@ public class InicioActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				Intent i = new Intent(getApplicationContext(), ModificarActivity.class);
+				startActivity(i);
+			}
+		});
+		botonVacunas.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent i = new Intent(getApplicationContext(), VacunasActivity.class);
 				startActivity(i);
 			}
 		});
