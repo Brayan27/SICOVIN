@@ -42,7 +42,6 @@ public class CalendarioVacunacionService {
 				new String[] { "table", "CalendarioVacunacion" }, null, null, null, null);
 		existe = cursor.moveToFirst();
 		if (!existe) {
-			database.execSQL("DROP TABLE CalendarioVacunacion");
 			database.execSQL(
 					"CREATE TABLE CalendarioVacunacion (idVacuna INTEGER, edadAplicacion INTEGER, tipo TEXT,PRIMARY KEY ( idVacuna, edadAplicacion),FOREIGN KEY(idVacuna) REFERENCES Vacuna(idVacuna))");
 		}

@@ -5,7 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.andmore.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.andmore.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.andmore.DEPENDENCIES"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Bryan/android-sdks/extras/android/m2repository/com/android/support/appcompat-v7/25.3.1/appcompat-v7-25.3.1-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Bryan/android-sdks/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bryan/android-sdks/extras/android/m2repository/com/android/support/appcompat-v7/22.1.0/appcompat-v7-22.1.0-sources.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

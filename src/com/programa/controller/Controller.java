@@ -1,6 +1,9 @@
 package com.programa.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+
+import javax.crypto.CipherInputStream;
 
 import com.programa.model.CalendarioVacunacion;
 import com.programa.model.Canton;
@@ -8,8 +11,10 @@ import com.programa.model.ClaseUseSpinner;
 import com.programa.model.Distrito;
 import com.programa.model.Provincia;
 import com.programa.model.Usuario;
+import com.programa.model.UsuarioCalendario;
 import com.programa.model.Vacuna;
 import com.programa.services.CalendarioVacunacionService;
+import com.programa.services.UsuarioCalendarioService;
 import com.programa.services.UsuarioService;
 import com.programa.services.VacunaService;
 import com.programa.services.WebServiceDisCR;
@@ -29,6 +34,7 @@ public class Controller {
 	private UsuarioService usuarioService;
 	private VacunaService vacunaService;
 	private CalendarioVacunacionService calendarioVacunacionService;
+	private UsuarioCalendarioService usuarioCalendarioService;
 	private Usuario usuario;
 	public static Controller global;
 
@@ -50,7 +56,6 @@ public class Controller {
 	public void setProvincias(ArrayList<Provincia> provincias) {
 		this.provincias = provincias;
 		claseUseSpinner.cargarProvincias();
-		// cargarSpinnerProvincias();
 	}
 
 	public ArrayList<Canton> getCantones() {
@@ -191,5 +196,51 @@ public class Controller {
 			Log.e("Error", "Ya existe la tabla");
 			calendarioVacunaciones = calendarioVacunacionService.getAllCalendarioVacunacion();
 		}
+	}
+
+	public void cargarTablaUsuarioCalendario(Context context) {
+		usuarioCalendarioService = new UsuarioCalendarioService(context);
+		usuarioCalendarioService.existeTabla();
+	}
+
+	public boolean validarVacuna(int meses) {
+		Calendar now = Calendar.getInstance();
+		Calendar edadActual = Calendar.getInstance();
+		edadActual.setTimeInMillis(usuario.getFechaNacimiento());
+		edadActual.add(Calendar.MONTH, meses);
+		return edadActual.before(now);
+	}
+
+	public boolean aplicarVacunaUsuario(Context context, int vacuna, int calendario, long fechaAplicacion) {
+		boolean bandera = true;
+		usuarioCalendarioService = new UsuarioCalendarioService(context);
+		UsuarioCalendario usuarioCalendario = new UsuarioCalendario(usuario.getIdUsuario(), vacuna, calendario,
+				fechaAplicacion);
+		bandera = usuarioCalendarioService.addUsuarioCalendario(usuarioCalendario) > 0;
+
+		return bandera;
+	}
+
+	public ArrayList<String> obtenerVacunasAplicadasUsuario(Context context) {
+		ArrayList<String> datos = new ArrayList<>();
+
+		usuarioCalendarioService = new UsuarioCalendarioService(context);
+		ArrayList<UsuarioCalendario> usuarioCalendarioLista = usuarioCalendarioService.getCalendarioVacunacion(usuario);
+		if (!usuarioCalendarioLista.isEmpty()) {
+			long vacunaInicial = usuarioCalendarioLista.get(0).getIdVacuna();
+			vacunaService = new VacunaService(context);
+			datos.add(vacunaService.getVacuna(new Vacuna(vacunaInicial, "")).getNombreVacuna());
+			for (UsuarioCalendario usrCal : usuarioCalendarioLista) {
+				if (usrCal != null) {
+					if (usrCal.getIdVacuna() != vacunaInicial) {
+						vacunaInicial = usuarioCalendarioLista.get(0).getIdVacuna();
+						vacunaService = new VacunaService(context);
+						datos.add(vacunaService.getVacuna(new Vacuna(vacunaInicial, "")).getNombreVacuna());
+					}
+				}
+			}
+		}
+
+		return datos;
 	}
 }

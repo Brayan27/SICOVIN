@@ -1,5 +1,9 @@
 package com.programa.sicovin;
 
+import java.util.ArrayList;
+
+import com.programa.controller.Controller;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,8 +26,8 @@ public class VacunasActivity extends Activity {
 		setContentView(R.layout.activity_vacunas);
 
 		inicializarComponentes();
-		cargarDatos();
 		ajustarEventos();
+		cargarDatos();
 
 	}
 
@@ -36,10 +40,7 @@ public class VacunasActivity extends Activity {
 
 	private void cargarDatos() {
 
-		String[] datos = { "Vacuna1", "Vacuna2", "Vacuna3" };
-
-		listaAplicadas.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos));
-		listaPendientes.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos));
+		cargarVacunasAplicadas();
 
 	}
 
@@ -77,5 +78,17 @@ public class VacunasActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void cargarVacunasAplicadas() {
+
+		ArrayList<String> vacunas = Controller.obtenerInstancia().obtenerVacunasAplicadasUsuario(this);
+		String[] datos = new String[vacunas.size()];
+
+		for (int i = 0; i < vacunas.size(); i++) {
+			datos[i] = vacunas.get(i);
+		}
+
+		listaAplicadas.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos));
 	}
 }

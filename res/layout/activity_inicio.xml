@@ -154,15 +154,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3"
-                        android:text="0" />
+                        android:text="Recién Nacido" />
 
                     <RadioButton
                         android:id="@+id/radioButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView1Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -186,15 +188,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="Recién Nacido" />
 
                     <RadioButton
                         android:id="@+id/radioButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView2Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -219,15 +224,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="2 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView3Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3"
@@ -252,15 +260,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="6 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView4Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -284,15 +295,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="2 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView5Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -317,15 +331,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="4 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView6Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -349,15 +366,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="6 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView7Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -381,15 +401,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 1 año 3 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView8Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -413,15 +436,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="2 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView9Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -445,15 +471,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="4 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView10Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -477,15 +506,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="6 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView11Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -510,15 +542,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 1 año y 3 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView12Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -542,15 +577,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 4 años" />
 
                     <RadioButton
                         android:id="@+id/radioButton13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView13Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -574,15 +612,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 10 años" />
 
                     <RadioButton
                         android:id="@+id/radioButton14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView14Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -606,15 +647,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="2 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView15Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -638,15 +682,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="4 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView16Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -671,15 +718,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="6 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView17Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -703,15 +753,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 4 años" />
 
                     <RadioButton
                         android:id="@+id/radioButton18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView18Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -736,15 +789,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 1 año y 3 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView19Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -768,15 +824,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 7 años" />
 
                     <RadioButton
                         android:id="@+id/radioButton20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView20Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -801,15 +860,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 1 año y 3 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView21Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -833,15 +895,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="2 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView22Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -866,15 +931,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="4 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView23Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -898,15 +966,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text="6 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView24Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -930,15 +1001,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:text=" 1 año y 3 meses" />
 
                     <RadioButton
                         android:id="@+id/radioButton25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:background="#A9E2F3" />
+                        android:background="#A9E2F3"
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
+						android:id="@+id/textView25Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />

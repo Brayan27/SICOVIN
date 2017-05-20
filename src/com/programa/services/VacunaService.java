@@ -62,14 +62,16 @@ public class VacunaService {
 
 	public Vacuna getVacuna(Vacuna vac) {
 		open();
-		Cursor cursor = database.query("Usuario", null, "Cedula=? AND Contrasena=?",
-				new String[] { vac.getNombreVacuna() }, null, null, null, null);
-
 		Vacuna vacuna = null;
 
+		Cursor cursor = database.query("Vacuna", null, "idVacuna=?", new String[] { String.valueOf(vac.getIdVacuna()) },
+				null, null, null, null);
+
 		if (cursor != null) {
-			cursor.moveToFirst();
-			vacuna = new Vacuna(Long.parseLong(cursor.getString(0)), cursor.getString(1));
+			if (cursor.moveToFirst()) {
+				vacuna = new Vacuna(Long.parseLong(cursor.getString(0)), cursor.getString(1));
+			}
+			cursor.close();
 		}
 		close();
 		return vacuna;
