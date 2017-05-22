@@ -3,8 +3,6 @@ package com.programa.controller;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import javax.crypto.CipherInputStream;
-
 import com.programa.model.CalendarioVacunacion;
 import com.programa.model.Canton;
 import com.programa.model.ClaseUseSpinner;
@@ -13,6 +11,7 @@ import com.programa.model.Provincia;
 import com.programa.model.Usuario;
 import com.programa.model.UsuarioCalendario;
 import com.programa.model.Vacuna;
+import com.programa.model.VacunasCont;
 import com.programa.services.CalendarioVacunacionService;
 import com.programa.services.UsuarioCalendarioService;
 import com.programa.services.UsuarioService;
@@ -221,26 +220,14 @@ public class Controller {
 		return bandera;
 	}
 
-	public ArrayList<String> obtenerVacunasAplicadasUsuario(Context context) {
-		ArrayList<String> datos = new ArrayList<>();
+	public ArrayList<VacunasCont> obtenerVacunasAplicadasUsuario(Context context) {
 
-		usuarioCalendarioService = new UsuarioCalendarioService(context);
-		ArrayList<UsuarioCalendario> usuarioCalendarioLista = usuarioCalendarioService.getCalendarioVacunacion(usuario);
-		if (!usuarioCalendarioLista.isEmpty()) {
-			long vacunaInicial = usuarioCalendarioLista.get(0).getIdVacuna();
-			vacunaService = new VacunaService(context);
-			datos.add(vacunaService.getVacuna(new Vacuna(vacunaInicial, "")).getNombreVacuna());
-			for (UsuarioCalendario usrCal : usuarioCalendarioLista) {
-				if (usrCal != null) {
-					if (usrCal.getIdVacuna() != vacunaInicial) {
-						vacunaInicial = usuarioCalendarioLista.get(0).getIdVacuna();
-						vacunaService = new VacunaService(context);
-						datos.add(vacunaService.getVacuna(new Vacuna(vacunaInicial, "")).getNombreVacuna());
-					}
-				}
-			}
-		}
+		vacunaService = new VacunaService(context);
+		return vacunaService.vacunasAplicadasUsuario(usuario);
+	}
 
-		return datos;
+	public ArrayList<VacunasCont> obtenerVacunasPendientesUsuario(Context context) {
+		vacunaService = new VacunaService(context);
+		return vacunaService.vacunasPendientesUsuario(usuario);
 	}
 }

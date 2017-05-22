@@ -3,6 +3,7 @@ package com.programa.sicovin;
 import java.util.ArrayList;
 
 import com.programa.controller.Controller;
+import com.programa.model.VacunasCont;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ public class VacunasActivity extends Activity {
 	private void cargarDatos() {
 
 		cargarVacunasAplicadas();
-
+		cargarVacunasPendientes();
 	}
 
 	private void ajustarEventos() {
@@ -82,13 +83,24 @@ public class VacunasActivity extends Activity {
 
 	private void cargarVacunasAplicadas() {
 
-		ArrayList<String> vacunas = Controller.obtenerInstancia().obtenerVacunasAplicadasUsuario(this);
+		ArrayList<VacunasCont> vacunas = Controller.obtenerInstancia().obtenerVacunasAplicadasUsuario(this);
 		String[] datos = new String[vacunas.size()];
 
 		for (int i = 0; i < vacunas.size(); i++) {
-			datos[i] = vacunas.get(i);
+			datos[i] = vacunas.get(i).toString();
 		}
 
 		listaAplicadas.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos));
+	}
+
+	private void cargarVacunasPendientes() {
+		ArrayList<VacunasCont> vacunas = Controller.obtenerInstancia().obtenerVacunasPendientesUsuario(this);
+		String[] datos = new String[vacunas.size()];
+
+		for (int i = 0; i < vacunas.size(); i++) {
+			datos[i] = vacunas.get(i).toString();
+		}
+
+		listaPendientes.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos));
 	}
 }
