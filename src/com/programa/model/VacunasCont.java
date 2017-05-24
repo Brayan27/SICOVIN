@@ -1,5 +1,8 @@
 package com.programa.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class VacunasCont {
 
 	private String nombre;
@@ -38,7 +41,15 @@ public class VacunasCont {
 
 	@Override
 	public String toString() {
-		return "nombre=" + nombre + ", edadAplicacion=" + edadAplicacion + ", fechaAplicada=" + fechaAplicada;
+		Calendar fechaAplicacion = Calendar.getInstance();
+		fechaAplicacion.setTimeInMillis(fechaAplicada);
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy/MM/dd ");
+		return "nombre=" + nombre + ", edadAplicacion=" + edadAplicacion + ", fechaAplicada="
+				+ format1.format(fechaAplicacion.getTime());
+	}
+	
+	public String imprimirPendiente() {
+		return "nombre=" + nombre + ", edadAplicacion=" + edadAplicacion;
 	}
 
 }

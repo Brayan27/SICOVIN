@@ -220,6 +220,12 @@ public class Controller {
 		return bandera;
 	}
 
+	public ArrayList<UsuarioCalendario> obtenerVacunasUsuarioCalendario(Context context) {
+
+		usuarioCalendarioService = new UsuarioCalendarioService(context);
+		return usuarioCalendarioService.getCalendarioVacunacion(usuario);
+	}
+
 	public ArrayList<VacunasCont> obtenerVacunasAplicadasUsuario(Context context) {
 
 		vacunaService = new VacunaService(context);

@@ -156,11 +156,16 @@ public class VacunaService {
 		open();
 		cursor = database.rawQuery(
 				"select distinct Vacuna.nombreVacuna,CalendarioVacunacion.edadAplicacion "
-						+ "from CalendarioVacunacion inner join UsuarioCalendario "
+						+ "from CalendarioVacunacion left join UsuarioCalendario "
 						+ "ON CalendarioVacunacion.idVacuna!=UsuarioCalendario.idVacuna and "
-						+ "CalendarioVacunacion.edadAplicacion!=UsuarioCalendario.edadAplicacion and "
-						+ "UsuarioCalendario.idUsuario=? " + "left join Vacuna",
-				new String[] { String.valueOf(usuario.getIdUsuario()) });
+						+ "CalendarioVacunacion.edadAplicacion!=UsuarioCalendario.edadAplicacion "
+						+ "left join Vacuna on Vacuna.idVacuna=CalendarioVacunacion.idVacuna where "
+						+ "UsuarioCalendario.idUsuario=? except "
+						+ "select Vacuna.nombreVacuna, UsuarioCalendario.edadAplicacion"
+						+ " from Vacuna inner join UsuarioCalendario ON "
+						+ "Vacuna.idVacuna = UsuarioCalendario.idVacuna and UsuarioCalendario.idUsuario=?",
+				new String[] { String.valueOf(usuario.getIdUsuario()), String.valueOf(usuario.getIdUsuario()) });
+		// https://www.techonthenet.com/sqlite/except.php
 
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {

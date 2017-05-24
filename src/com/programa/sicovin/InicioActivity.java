@@ -1,8 +1,11 @@
 package com.programa.sicovin;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.programa.controller.Controller;
+import com.programa.model.UsuarioCalendario;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -41,7 +44,7 @@ public class InicioActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		inicializarComponentes();
 		ajustarEventos();
-
+		cargarTabla();
 	}
 
 	private void inicializarComponentes() {
@@ -87,6 +90,144 @@ public class InicioActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void cargarTabla() {
+		ArrayList<UsuarioCalendario> calendario = Controller.obtenerInstancia().obtenerVacunasUsuarioCalendario(this);
+		for (UsuarioCalendario cal : calendario) {
+			switch (String.valueOf(cal.getIdVacuna())) {
+			case "1":
+				radioButton = (RadioButton) findViewById(R.id.radioButton1);
+				textView1Tab = (TextView) findViewById(R.id.textView1Tab);
+				break;
+			case "2":
+				switch (cal.getEdadAplicacion()) {
+				case 0:
+					radioButton = (RadioButton) findViewById(R.id.radioButton2);
+					textView1Tab = (TextView) findViewById(R.id.textView2Tab);
+					break;
+				case 2:
+					radioButton = (RadioButton) findViewById(R.id.radioButton3);
+					textView1Tab = (TextView) findViewById(R.id.textView3Tab);
+					break;
+				case 6:
+					radioButton = (RadioButton) findViewById(R.id.radioButton4);
+					textView1Tab = (TextView) findViewById(R.id.textView4Tab);
+					break;
+				}
+				break;
+			case "3":
+				switch (cal.getEdadAplicacion()) {
+				case 2:
+					radioButton = (RadioButton) findViewById(R.id.radioButton5);
+					textView1Tab = (TextView) findViewById(R.id.textView5Tab);
+					break;
+				case 4:
+					radioButton = (RadioButton) findViewById(R.id.radioButton6);
+					textView1Tab = (TextView) findViewById(R.id.textView6Tab);
+					break;
+				case 6:
+					radioButton = (RadioButton) findViewById(R.id.radioButton7);
+					textView1Tab = (TextView) findViewById(R.id.textView7Tab);
+					break;
+				case 15:
+					radioButton = (RadioButton) findViewById(R.id.radioButton8);
+					textView1Tab = (TextView) findViewById(R.id.textView8Tab);
+					break;
+				}
+				break;
+			case "4":
+				switch (cal.getEdadAplicacion()) {
+				case 2:
+					radioButton = (RadioButton) findViewById(R.id.radioButton9);
+					textView1Tab = (TextView) findViewById(R.id.textView9Tab);
+					break;
+				case 4:
+					radioButton = (RadioButton) findViewById(R.id.radioButton10);
+					textView1Tab = (TextView) findViewById(R.id.textView10Tab);
+					break;
+				case 6:
+					radioButton = (RadioButton) findViewById(R.id.radioButton11);
+					textView1Tab = (TextView) findViewById(R.id.textView11Tab);
+					break;
+				case 15:
+					radioButton = (RadioButton) findViewById(R.id.radioButton12);
+					textView1Tab = (TextView) findViewById(R.id.textView12Tab);
+					break;
+				case 48:
+					radioButton = (RadioButton) findViewById(R.id.radioButton13);
+					textView1Tab = (TextView) findViewById(R.id.textView13Tab);
+					break;
+				case 120:
+					radioButton = (RadioButton) findViewById(R.id.radioButton14);
+					textView1Tab = (TextView) findViewById(R.id.textView14Tab);
+					break;
+				}
+				break;
+			case "5":
+				switch (cal.getEdadAplicacion()) {
+				case 2:
+					radioButton = (RadioButton) findViewById(R.id.radioButton15);
+					textView1Tab = (TextView) findViewById(R.id.textView15Tab);
+					break;
+				case 4:
+					radioButton = (RadioButton) findViewById(R.id.radioButton16);
+					textView1Tab = (TextView) findViewById(R.id.textView16Tab);
+					break;
+				case 6:
+					radioButton = (RadioButton) findViewById(R.id.radioButton17);
+					textView1Tab = (TextView) findViewById(R.id.textView17Tab);
+					break;
+				case 48:
+					radioButton = (RadioButton) findViewById(R.id.radioButton18);
+					textView1Tab = (TextView) findViewById(R.id.textView18Tab);
+					break;
+				}
+				break;
+			case "6":
+				switch (cal.getEdadAplicacion()) {
+				case 15:
+					radioButton = (RadioButton) findViewById(R.id.radioButton19);
+					textView1Tab = (TextView) findViewById(R.id.textView19Tab);
+					break;
+				case 84:
+					radioButton = (RadioButton) findViewById(R.id.radioButton20);
+					textView1Tab = (TextView) findViewById(R.id.textView20Tab);
+					break;
+				}
+				break;
+			case "7":
+				radioButton = (RadioButton) findViewById(R.id.radioButton21);
+				textView1Tab = (TextView) findViewById(R.id.textView21Tab);
+				break;
+			case "8":
+				switch (cal.getEdadAplicacion()) {
+				case 2:
+					radioButton = (RadioButton) findViewById(R.id.radioButton22);
+					textView1Tab = (TextView) findViewById(R.id.textView22Tab);
+					break;
+				case 4:
+					radioButton = (RadioButton) findViewById(R.id.radioButton23);
+					textView1Tab = (TextView) findViewById(R.id.textView23Tab);
+					break;
+				case 6:
+					radioButton = (RadioButton) findViewById(R.id.radioButton24);
+					textView1Tab = (TextView) findViewById(R.id.textView24Tab);
+					break;
+				case 15:
+					radioButton = (RadioButton) findViewById(R.id.radioButton25);
+					textView1Tab = (TextView) findViewById(R.id.textView25Tab);
+					break;
+				}
+				break;
+			}
+
+			Calendar fechaAplicacion = Calendar.getInstance();
+			fechaAplicacion.setTimeInMillis(cal.getFechaAplicacion());
+			SimpleDateFormat format1 = new SimpleDateFormat("yyyy/MM/dd ");
+			textView1Tab.setText(format1.format(fechaAplicacion.getTime()));
+			radioButton.setChecked(true);
+		}
 	}
 
 	public void onRadioButtonClicked(View view) {
@@ -260,7 +401,9 @@ public class InicioActivity extends Activity {
 
 		if (Controller.obtenerInstancia().aplicarVacunaUsuario(this, vacuna, calendario, fechaAplicacion)) {
 			mensajeToast("Exito al registrar la vacuna para el menor.");
-			textView1Tab.setText("       X");
+			SimpleDateFormat format1 = new SimpleDateFormat("yyyy/MM/dd ");
+			textView1Tab.setText(format1.format(calendar.getTime()));
+			radioButton.setChecked(true);
 		} else {
 			mensajeToast("La vacuna ya se encuentra registrada para el menor.");
 		}

@@ -98,7 +98,7 @@ public class VacunasActivity extends Activity {
 		String[] datos = new String[vacunas.size()];
 
 		for (int i = 0; i < vacunas.size(); i++) {
-			datos[i] = vacunas.get(i).toString();
+			datos[i] = vacunas.get(i).imprimirPendiente();
 		}
 
 		listaPendientes.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos));

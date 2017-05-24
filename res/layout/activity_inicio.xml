@@ -135,6 +135,11 @@
                         android:textStyle="bold" />
                 </TableRow>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
+
                 <TableRow android:background="#ECEFF1" >
 
                     <TextView
@@ -161,14 +166,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="#A9E2F3"
-                         android:onClick="onRadioButtonClicked" />
+                        android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView1Tab"
+                        android:id="@+id/textView1Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
                 </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
                 <TableRow android:background="#ECEFF1" >
 
@@ -199,7 +209,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView2Tab"
+                        android:id="@+id/textView2Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -235,7 +245,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView3Tab"
+                        android:id="@+id/textView3Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3"
@@ -271,11 +281,16 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView4Tab"
+                        android:id="@+id/textView4Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
                 </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
                 <TableRow android:background="#ECEFF1" >
 
@@ -306,7 +321,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView5Tab"
+                        android:id="@+id/textView5Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -342,7 +357,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView6Tab"
+                        android:id="@+id/textView6Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -377,7 +392,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView7Tab"
+                        android:id="@+id/textView7Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -412,11 +427,16 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView8Tab"
+                        android:id="@+id/textView8Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
                 </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
                 <TableRow android:background="#ECEFF1" >
 
@@ -447,7 +467,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView9Tab"
+                        android:id="@+id/textView9Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -482,7 +502,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView10Tab"
+                        android:id="@+id/textView10Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -517,7 +537,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView11Tab"
+                        android:id="@+id/textView11Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -553,7 +573,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView12Tab"
+                        android:id="@+id/textView12Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -588,7 +608,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView13Tab"
+                        android:id="@+id/textView13Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -623,11 +643,16 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView14Tab"
+                        android:id="@+id/textView14Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
                 </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
                 <TableRow android:background="#ECEFF1" >
 
@@ -658,7 +683,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView15Tab"
+                        android:id="@+id/textView15Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -693,7 +718,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView16Tab"
+                        android:id="@+id/textView16Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -729,7 +754,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView17Tab"
+                        android:id="@+id/textView17Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -764,11 +789,16 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView18Tab"
+                        android:id="@+id/textView18Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
                 </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
                 <TableRow android:background="#ECEFF1" >
 
@@ -800,7 +830,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView19Tab"
+                        android:id="@+id/textView19Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -835,11 +865,16 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView20Tab"
+                        android:id="@+id/textView20Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
                 </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
                 <TableRow android:background="#ECEFF1" >
 
@@ -871,11 +906,16 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView21Tab"
+                        android:id="@+id/textView21Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
                 </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
                 <TableRow android:background="#ECEFF1" >
 
@@ -906,7 +946,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView22Tab"
+                        android:id="@+id/textView22Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -942,7 +982,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView23Tab"
+                        android:id="@+id/textView23Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -977,7 +1017,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView24Tab"
+                        android:id="@+id/textView24Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />
@@ -1012,7 +1052,7 @@
                         android:onClick="onRadioButtonClicked" />
 
                     <TextView
-						android:id="@+id/textView25Tab"
+                        android:id="@+id/textView25Tab"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#A9E2F3" />

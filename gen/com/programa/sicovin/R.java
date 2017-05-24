@@ -23,8 +23,9 @@ public final class R {
         public static final int navigation_drawer_width=0x7f050002;
     }
     public static final class drawable {
-        public static final int drawer_shadow=0x7f020000;
-        public static final int ic_drawer=0x7f020001;
+        public static final int border=0x7f020000;
+        public static final int drawer_shadow=0x7f020001;
+        public static final int ic_drawer=0x7f020002;
     }
     public static final class id {
         public static final int action_example=0x7f090056;
