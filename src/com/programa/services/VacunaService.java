@@ -158,7 +158,7 @@ public class VacunaService {
 				"select distinct Vacuna.nombreVacuna,CalendarioVacunacion.edadAplicacion "
 						+ "from CalendarioVacunacion left join UsuarioCalendario "
 						+ "ON CalendarioVacunacion.idVacuna!=UsuarioCalendario.idVacuna and "
-						+ "CalendarioVacunacion.edadAplicacion!=UsuarioCalendario.edadAplicacion "
+						+ "CalendarioVacunacion.edadAplicacion<=UsuarioCalendario.edadAplicacion "
 						+ "left join Vacuna on Vacuna.idVacuna=CalendarioVacunacion.idVacuna where "
 						+ "UsuarioCalendario.idUsuario=? except "
 						+ "select Vacuna.nombreVacuna, UsuarioCalendario.edadAplicacion"

@@ -34,6 +34,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			+ "FOREIGN KEY(idUsuario) REFERENCES Usuario(idUsuario),"
 			+ "FOREIGN KEY(idVacuna,edadAplicacion) REFERENCES CalendarioVacunacion(idVacuna,edadAplicacion))";
 
+	// TABLE UsuarioCalendario
+	private static final String TABLE_NAME_CITA = "Cita";
+	private static final String TABLE_CREATE_CITA = "CREATE TABLE " + TABLE_NAME_CITA
+			+ " (idUsuario INTEGER,idVacuna INTEGER, edadAplicacion INTEGER, fechaCita INTEGER, se_Aplico INTEGER, "
+			+ "PRIMARY KEY(idUsuario,idVacuna,edadAplicacion),"
+			+ "FOREIGN KEY(idUsuario, idVacuna, edadAplicacion) REFERENCES UsuarioCalendario(idUsuario,idVacuna,edadAplicacion))";
+
 	public DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -44,6 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL(TABLE_CREATE_VACUNA);
 		db.execSQL(TABLE_CREATE_CALENDARIO_VACUNA);
 		db.execSQL(TABLE_CREATE_USUARIO_CALENDARIO_VACUNA);
+		db.execSQL(TABLE_CREATE_CITA);
 	}
 
 	@Override
@@ -52,6 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXIST " + TABLE_NAME_VACUNA);
 		db.execSQL("DROP TABLE IF EXIST " + TABLE_NAME_CALENDARIO_VACUNA);
 		db.execSQL("DROP TABLE IF EXIST " + TABLE_NAME_USUARIO_CALENDARIO_VACUNA);
+		db.execSQL("DROP TABLE IF EXIST " + TABLE_NAME_CITA);
 
 		onCreate(db);
 	}
